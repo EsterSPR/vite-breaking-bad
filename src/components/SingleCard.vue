@@ -1,24 +1,27 @@
 <script>
+import { store } from '../store';
+
 export default {
     props:{
         card: Object
     },
     data(){
         return{
+            store,
             index: 0
         }
     }
 }
 </script>
 
-<template lang="">
+<template>
     <div class="cards-card">
         <div class="cards-img">
             <img :src="card.card_images[0].image_url" />
         </div>
         <div class="cards-text">
-            <h3>{{card.name}}</h3>
-            <p>{{card.type}}</p>
+            <h6>{{card.name}}</h6>
+            <p>{{card.archetype}}</p>
         </div>
     </div>
 </template>
@@ -28,10 +31,19 @@ export default {
 
     .cards-card{
         background-color: $ygo-orange;
+        width: 200px;
+        text-align: center;
+        margin-bottom: 20px;
 
-        h3{
+        img{
+            width: 200px;
+        }
+
+        h6{
             color: $ygo-white;
             text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 10px;
         }
     }
 </style>
